@@ -24,6 +24,13 @@ app.use(express.json());
 app.use('/api',apiKeyMiddleware, userRoutes);
 app.use('/api',apiKeyMiddleware, movieRoutes);
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "MovieList API is running"
+  });
+});
+
 
 app.use(errorMiddleware);
 
