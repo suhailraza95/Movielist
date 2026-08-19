@@ -1,5 +1,5 @@
 const { format } = require("morgan");
-const ajvInstance = require("../../config/ajv-Instance");
+const ajvInstance = require("../../config/ajv-instance");
  
 const registerREQSchema = {
   type: "object",
