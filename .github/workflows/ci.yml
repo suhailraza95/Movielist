@@ -55,8 +55,15 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/movielist:latest .
+          docker build \
+            -t ghcr.io/${{ github.repository_owner }}/movielist:latest \
+            -t ghcr.io/${{ github.repository_owner }}/movielist:${{ github.sha }} \
+            .
 
-      - name: Push Docker image
+      - name: Push latest image
         run: |
           docker push ghcr.io/${{ github.repository_owner }}/movielist:latest
+
+      - name: Push commit image
+        run: |
+          docker push ghcr.io/${{ github.repository_owner }}/movielist:${{ github.sha }}
