@@ -40,7 +40,7 @@ jobs:
           sleep 5
 
       - name: Health check
-        run: curl --fail http://localhost:5003/health-wrong
+        run: curl --fail http://localhost:5003/health
 
       - name: Build Docker image
         run: docker build -t movielist-app .
